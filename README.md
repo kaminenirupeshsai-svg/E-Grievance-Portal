@@ -1,5 +1,5 @@
 # E-Grievance-Portal
-E-Grievance Redressal Portal is a web-based system that enables users to submit, track, and resolve grievances efficiently through a transparent and role-based digital platform.
+A complete web-based platform designed to streamline the submission, tracking, and resolution of grievances for universities and institutions.
 # 🌟 Overview
 E-Grievance Hub is a digital platform that connects Students, Admins, and SuperAdmins in a single transparent workflow.
 It eliminates manual paperwork and delays by enabling online grievance submission and processing.
@@ -29,34 +29,35 @@ The system provides real-time updates, tracking, and accountability for efficien
 * Express.js
 * MongoDB + Mongoose
 # 🔐 System Architecture
-  graph TD
-    %% Define the main components (Nodes)
-    subgraph Frontend (Frontend \(React\))
-        SUI[Student UI]
-        AD[Admin Dashboard]
-        SAP[SuperAdmin Panel]
-    end
-    API("API Gateway (Express Server)")
-    
-  %% Define backend components within a logical group
-    subgraph Backend
-        Auth("Authentication<br>JWT + Middleware")
-        Services("Grievance Services<br>CRUD + File Uploads")
-        Config("Admin/SuperAdmin<br>Approvals & Config")
-    end
-    DB("MongoDB Database<br>Users / Admins / Complaints / Logs")
-
-  %% Define the connections (Edges) and flow
-    Frontend --> API
-    API --> Auth
-    API --> Services
-    API --> Config
-    Services --> DB
-
-  %% Apply optional styling to match the image's simple look
-    classDef rect fill:#fff,stroke:#333,stroke-width:2px;
-    class Frontend,API,Auth,Services,Config,DB rect;
-
+```
+                   ┌────────────────────────────────┐
+                   │       Frontend                 │
+                   │  - Student UI                  │
+                   │  - Admin Dashboard             │
+                   │  - SuperAdmin Panel            │
+                   └────────────────────────────────┘
+                                   │
+                                   ▼
+                       ┌─────────────────────┐
+                       │    API Gateway      │
+                       │  (Express Server)   │
+                       └─────────────────────┘
+                                   │
+        ┌────────────────────────────────────────────────────────────┐
+        │                            │                               │
+        ▼                            ▼                               ▼
+┌──────────────┐      ┌───────────────────────┐         ┌───────────────────────┐
+│ Authentication│      │  Grievance Services  │         │  Admin/SuperAdmin     │
+│ JWT + Middleware│    │ CRUD + File Uploads  │         │  Approvals & Config   │
+└──────────────┘      └───────────────────────┘         └───────────────────────┘
+                                   │
+                                   ▼
+                        ┌──────────────────────┐
+                        │   MongoDB Database   │
+                        │ Users / Admins /     │
+                        │ Complaints / Logs    │
+                        └──────────────────────┘
+```
 # 📁 Project Structure (Backend)
 ## Project Structure
 
@@ -76,3 +77,23 @@ Grievance-Portal/
     ├── routes/
     ├── views/
     └── database/
+```
+# 🛠️ Installation & Setup
+* 1️⃣ Clone the repository
+git clone https://github.com/yourusername/egrievance-hub.git
+cd egrievance-hub
+# 2️⃣ Install Backend
+* cd backend
+* npm install
+# 3️⃣ Install Frontend
+* cd frontend
+* npm install
+* node server.js
+# 📜 License
+This project is Open Source under the MIT License.
+# 🎯 Final Notes
+* E-Grievance Hub is designed to:
+* Improve transparency
+*Speed up grievance resolutions
+* Create accountability in institutions
+* Offer a clean tech-driven workflow for students and administration
